@@ -121,8 +121,13 @@ tg.on('message', function(msg) {
         return;
     }
 
-    var user = msg.from.first_name ? msg.from.first_name : ''
-             + msg.from.last_name ? msg.from.last_name : '';
-    var text = '<' + user + '>: ' + msg.text;
+    if (!config.tg_single_user) {
+        var user = msg.from.first_name ? msg.from.first_name : ''
+                 + msg.from.last_name ? msg.from.last_name : '';
+        var text = '<' + user + '>: ' + msg.text;
+    } else {
+        var text = msg.text;
+    }
+    
     irc_send_msg(text);
 });
