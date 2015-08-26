@@ -20,6 +20,7 @@ config.irc_channel_pwd = 'mypassword'; // leave empty for no password
 config.irc_options = {
     userName: 'bot',
     realName: 'Telegram IRC Bot',
+    password: '',
     port: 6667,
     localAddress: null,
     debug: true,
@@ -43,6 +44,9 @@ config.irc_options = {
 
 // relay all messages or only hilights
 config.irc_relay_all = false;
+
+// Doesn't print Telegram Username to irc messages if true
+config.tg_single_user = false;
 
 // regex for detecting a hilight
 config.irc_hilight_re = new RegExp('^' + config.irc_nick + '[:,]? +(.*)$', 'i');
